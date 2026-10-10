@@ -24,7 +24,6 @@ function setRowResult(row, result, attempts) {
 const resultCell = row.querySelector(".result");
 const attemptsCell = row.querySelector(".attempts");
 
-```
 resultCell.textContent = result;
 attemptsCell.textContent = attempts;
 
@@ -36,8 +35,6 @@ const tag = document.createElement("span");
 tag.className = `tag ${statusClass}`;
 tag.textContent = result;
 resultCell.appendChild(tag);
-```
-
 }
 
 function updateSummary(completed, failed, pending) {
@@ -51,17 +48,14 @@ const percentage = total === 0
 ? 0
 : Math.round((processed / total) * 100);
 
-```
 progressBar.style.width = `${percentage}%`;
 progressText.textContent = `${percentage}%`;
-```
 
 }
 
 function resetDashboard() {
 const rows = getRows();
 
-```
 rows.forEach(row => {
     row.querySelector(".result").textContent = "—";
     row.querySelector(".attempts").textContent = "0";
@@ -72,7 +66,6 @@ rows.forEach(row => {
 totalCount.textContent = rows.length;
 updateSummary(0, 0, rows.length);
 updateProgress(0, rows.length);
-```
 
 }
 
@@ -80,8 +73,6 @@ async function runSimulation() {
 if (isRunning) {
 return;
 }
-
-```
 isRunning = true;
 runButton.disabled = true;
 downloadButton.disabled = true;
@@ -160,14 +151,12 @@ runButton.textContent = "↻ Run Again";
 downloadButton.disabled = false;
 
 isRunning = false;
-```
 
 }
 
 function downloadResults() {
 const rows = getRows();
 
-```
 const headers = [
     "Record A",
     "Record B",
@@ -214,7 +203,6 @@ link.click();
 link.remove();
 
 URL.revokeObjectURL(url);
-```
 
 }
 
