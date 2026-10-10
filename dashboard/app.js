@@ -140,3 +140,57 @@ if (succeeded) {
 }
 
 runButton.addEventListener("click", runSimulation);
+const downloadButton = document.getElementById("downloadButton");
+
+function downloadResults() {
+    const rows = getRows();
+
+    const headers = [
+        "Record A",
+        "Record B",
+        "Input Status",
+        "Result",
+        "Attempts"
+    ];
+
+    const csvRows = [headers];
+
+    rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+
+        csvRows.push([
+            cells[0].textContent.trim(),
+            cells[1].textContent.trim(),
+            cells[2].textContent.trim(),
+            cells[3].textContent.trim(),
+            cells[4].textContent.trim()
+        ]);
+    });
+
+    const csvContent = csvRows
+        .map(row =>
+            row.map(value =>
+                `"${value.replace(/"/g, '""')}"`
+            ).join(",")
+        )
+        .join("\r\n");
+
+    const blob = new Blob(
+        [csvContent],
+        { type: "text/csv;charset=utf-8;" }
+    );
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "demo_processing_results.csv";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+}
+
+downloadButton.addEventListener("click", downloadResults);
