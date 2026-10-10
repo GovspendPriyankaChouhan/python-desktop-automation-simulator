@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemoFlow | Automation Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-icon">D</span>
+            <div>
+                <h1>DemoFlow</h1>
+                <p>Automation Simulator</p>
+            </div>
+        </div>
+        <span class="environment">DEMO ENVIRONMENT</span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">WORKSPACE OVERVIEW</p>
+                <h2>Processing Dashboard</h2>
+                <p class="subtitle">
+                    Review fictional records and simulate a processing workflow.
+                </p>
+            </div>
+            <button id="runButton" class="primary-button">
+                ▶ Run Simulation
+            </button>
+        </section>
+
+        <section class="metrics">
+            <article class="metric-card">
+                <p>Total Records</p>
+                <h3 id="totalCount">4</h3>
+                <span>Records loaded</span>
+            </article>
+            <article class="metric-card">
+                <p>Completed</p>
+                <h3 id="completedCount">0</h3>
+                <span class="success-text">Successful simulations</span>
+            </article>
+            <article class="metric-card">
+                <p>Failed</p>
+                <h3 id="failedCount">0</h3>
+                <span class="error-text">Simulated failures</span>
+            </article>
+            <article class="metric-card">
+                <p>Pending</p>
+                <h3 id="pendingCount">4</h3>
+                <span>Awaiting processing</span>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h3>Record Queue</h3>
+                    <p>Fictional sample records for demonstration</p>
+                </div>
+                <span id="statusBadge" class="status-badge">Ready</span>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Record A</th>
+                            <th>Record B</th>
+                            <th>Input Status</th>
+                            <th>Result</th>
+                            <th>Attempts</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsTable">
+                        <tr data-a="DEMO-1001" data-b="DEMO-1002">
+                            <td>DEMO-1001</td>
+                            <td>DEMO-1002</td>
+                            <td><span class="tag pending">Pending</span></td>
+                            <td class="result">—</td>
+                            <td class="attempts">0</td>
+                        </tr>
+                        <tr data-a="DEMO-1003" data-b="DEMO-1004">
+                            <td>DEMO-1003</td>
+                            <td>DEMO-1004</td>
+                            <td><span class="tag pending">Pending</span></td>
+                            <td class="result">—</td>
+                            <td class="attempts">0</td>
+                        </tr>
+                        <tr data-a="DEMO-1005" data-b="DEMO-1006">
+                            <td>DEMO-1005</td>
+                            <td>DEMO-1006</td>
+                            <td><span class="tag pending">Pending</span></td>
+                            <td class="result">—</td>
+                            <td class="attempts">0</td>
+                        </tr>
+                        <tr data-a="DEMO-1007" data-b="DEMO-1008">
+                            <td>DEMO-1007</td>
+                            <td>DEMO-1008</td>
+                            <td><span class="tag pending">Pending</span></td>
+                            <td class="result">—</td>
+                            <td class="attempts">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-label">
+                    <span>Processing progress</span>
+                    <span id="progressText">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+            </div>
+
+            <p id="message" class="message" role="status" aria-live="polite">
+                Ready to run the fictional simulation.
+            </p>
+        </section>
+
+        <footer>
+            DemoFlow is an independent portfolio demonstration.
+            All records and operations are fictional.
+            No external systems are connected.
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
