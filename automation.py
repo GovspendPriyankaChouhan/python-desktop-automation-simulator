@@ -3,7 +3,7 @@ import random
 import time
 from pathlib import Path
 
-BASE_DIR = Path(**file**).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent
 INPUT_FILE = BASE_DIR / "sample_data.csv"
 OUTPUT_FILE = BASE_DIR / "processing_results.csv"
 
