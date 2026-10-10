@@ -112,15 +112,19 @@ async function runSimulation() {
                 await wait(400);
             }
         }
+const inputStatusCell = row.querySelector("td:nth-child(3)");
 
-        if (succeeded) {
-            completed++;
-            setRowResult(row, "Done", attempts);
-        } else {
-            failed++;
-            setRowResult(row, "Error", attempts);
-        }
-
+if (succeeded) {
+    completed++;
+    inputStatusCell.innerHTML =
+        '<span class="tag done">Processed</span>';
+    setRowResult(row, "Done", attempts);
+} else {
+    failed++;
+    inputStatusCell.innerHTML =
+        '<span class="tag failed">Failed</span>';
+    setRowResult(row, "Error", attempts);
+}
         updateSummary(completed, failed, total - completed - failed);
         updateProgress(index + 1, total);
     }
